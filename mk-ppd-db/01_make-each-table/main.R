@@ -121,16 +121,21 @@ main %<>% merge(objhomes, all.x=TRUE)
 # --------------------------------------------------------------- #
 # FILE LINKS ---------------------------------------------------- #
 
-ovf <- read.table.dump("objects_x_files")
-ovf <- ovf[, .(Object_ID, File_ID)]
+# OLD WAY
+# ovf <- read.table.dump("objects_x_files")
+# ovf <- ovf[, .(Object_ID, File_ID)]
+#
+# mf <- read.table.dump("media_files")
+# mf <- mf[, .(File_ID, Media_Type, Link=sprintf("%s/%s", Path, File_Name))]
+# mf <- mf[Media_Type=="Image"]
+# mf <- mf[!str_detect(Link, "^S:")]
+# mf <- mf[, .(File_ID, Link)]
+# ovf <- ovf %>% merge(mf, all.x=TRUE, by="File_ID")
+# thumbs <- ovf[, .(Object_ID, Link)]
 
-mf <- read.table.dump("media_files")
-mf <- mf[, .(File_ID, Media_Type, Link=sprintf("%s/%s", Path, File_Name))]
-mf <- mf[Media_Type=="Image"]
-mf <- mf[!str_detect(Link, "^S:")]
-mf <- mf[, .(File_ID, Link)]
-ovf <- ovf %>% merge(mf, all.x=TRUE, by="File_ID")
-thumbs <- ovf[, .(Object_ID, Link)]
+thumbs <- read.table.dump("links")
+thumbs <- thumbs[Link_Type=="image"][, .(Object_ID, Link)]
+thumbs
 
 main %<>% merge(thumbs, all.x=TRUE)
 
