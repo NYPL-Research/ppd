@@ -16,7 +16,7 @@
     "datatables.net-buttons-dt": "^3.2.6",
     "datatables.net-dt": "^2.3.8",
     "datatables.net-fixedcolumns-dt": "^5.0.4",
-    "datatables.net-fixedheader-dt": "^4.0.1",
+    "datatables.net-fixedheader-dt": "^5.0.0",
     "datatables.net-react": "^1.0.0",
     "datatables.net-responsive-dt": "^3.0.8",
     "datatables.net-searchbuilder-dt": "^1.8.1",
