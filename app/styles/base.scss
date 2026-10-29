@@ -119,6 +119,17 @@ thead.dtfc-fixed-left {
   z-index: 10;
 }
 
+/*
+ * DataTables' "processing" indicator also has z-index: 10 and comes
+ * earlier in the DOM, so the fixed columns above were painting over
+ * it and it never showed. One higher puts it back on top. Scoped under
+ * the container because datatables.min.css is imported after this
+ * file and a bare `div.dt-processing` would lose on source order.
+ */
+div.dt-container div.dt-processing {
+  z-index: 11;
+}
+
 .dtfc-scrolling-start td.dtfc-fixed-left,
 .dtfc-scrolling-start th.dtfc-fixed-left,
 .dtfc-scrolling-start thead.dtfc-fixed-left {
