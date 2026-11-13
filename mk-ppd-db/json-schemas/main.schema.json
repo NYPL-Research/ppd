@@ -24,7 +24,7 @@
           "Object_Count", "Begin_Date", "End_Date", "Value", "Geo_Search_Value",
           "Collection", "Series", "Portfolio", "Descriptive_Title", "Folder",
           "Depicted_Location", "Non_Display_Title", "Book_or_Album_Title",
-          "Link", "Institution", "After", "Explicit_Artist", "Compiler",
+          "Link", "DC_Link", "Institution", "After", "Explicit_Artist", "Compiler",
           "Editor", "Photographer", "Printer", "Printmaker", "Publisher",
           "Sponsor", "Subject", "Country", "State", "County", "City", "Locus",
           "Signed", "Inscribed", "Markings", "Credit_Line", "Chat",
@@ -189,6 +189,9 @@
           }
         },
         "Link": {
+          "type": ["string", "null"]
+        },
+        "DC_Link": {
           "type": ["string", "null"]
         },
         "Institution": {

@@ -279,6 +279,10 @@ export const protoColumnDefs = {
       "title": "Link"
     },
     {
+      "data": "DC_Link",
+      "title": "DC Link"
+    },
+    {
       "data": "Institution",
       "title": "Institution"
     },

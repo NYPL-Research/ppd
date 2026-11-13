@@ -133,11 +133,18 @@ main %<>% merge(objhomes, all.x=TRUE)
 # ovf <- ovf %>% merge(mf, all.x=TRUE, by="File_ID")
 # thumbs <- ovf[, .(Object_ID, Link)]
 
-thumbs <- read.table.dump("links")
-thumbs <- thumbs[Link_Type=="image"][, .(Object_ID, Link)]
+links <- read.table.dump("links")
+
+thumbs <- links[Link_Type=="image"][, .(Object_ID, Link)]
 thumbs
 
+# Digital Collections pages. tint guarantees at most one link of each
+# type per object, so this merge is one-to-one like the one above
+dclinks <- links[Link_Type=="DC"][, .(Object_ID, DC_Link=Link)]
+dclinks
+
 main %<>% merge(thumbs, all.x=TRUE)
+main %<>% merge(dclinks, all.x=TRUE)
 
 # --------------------------------------------------------------- #
 
@@ -281,6 +288,7 @@ final <- main[, .(Object_ID,
                  Non_Display_Title,
                  Book_or_Album_Title,
                  Link,
+                 DC_Link,
                  Display_Name,
                  Institution,
                  After,
