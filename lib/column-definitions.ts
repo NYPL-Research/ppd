@@ -76,6 +76,17 @@ columnDefs = addNewKeyValToColumnDefs(columnDefs, 'main', 'Object_Number', 'rend
   return `<a href="/object/${row['Object_ID']}" target="_blank">${data}</a>`;
 });
 
+/* the image and Digital Collections URLs are hyperlinks (but only for
+   display; exports and search get the plain URL, and nulls stay null) */
+const urlLink = (data: string | null, type: DTOrthogonalType) => {
+  if (type !== 'display' || data == null)
+    return data;
+  return `<a href="${data}" target="_blank">${data}</a>`;
+};
+['Link', 'DC_Link'].forEach(field => {
+  columnDefs = addNewKeyValToColumnDefs(columnDefs, 'main', field, 'render', urlLink);
+});
+
 /* I have just discovered: some fields are more searchable than others */
 const mainNonSearchableFields = [
   "Object_ID", "Home_Location", "Value"

@@ -38,6 +38,7 @@ export const ObjectView = ({
     Object_Number,
     Title,
     Link,
+    DC_Link,
     Display_Name,
     Display_Date,
     Medium,
@@ -102,6 +103,11 @@ export const ObjectView = ({
         <div className={ styles['right'] }>
           { Link ?
               <ThumbnailHolder imageLink={ Link } /> :
+              <></> }
+          { DC_Link ?
+              <a className={ styles['dc-link'] } href={ DC_Link } target="_blank">
+                View in Digital Collections
+              </a> :
               <></> }
           <KeyValueTable payload={ mainAPIPayload } />
         </div>
