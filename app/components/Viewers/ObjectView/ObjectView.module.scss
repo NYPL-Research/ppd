@@ -88,7 +88,7 @@
 .right {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 19px;
   flex-grow: 1;
   & a {
     display: none;
@@ -103,8 +103,8 @@
 }
 
 .dc-link {
-  font-size: 1.2rem;
-  font-weight: bold;
+  // font-size: 1.2rem;
+  // font-weight: bold;
   text-decoration: none;
 }
 
